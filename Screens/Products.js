@@ -27,7 +27,6 @@ export default function Products() {
     const filterData = (e) => {
         e.preventDefault()
         setFilter(upperCaseOne(e.target.value));
-        console.log(filter);
     }
 
   return (
