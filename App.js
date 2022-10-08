@@ -1,21 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react'
+import { StatusBar } from  'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import Drawer from './src/navigation/Drawer' 
+import {Provider} from 'react-redux'
+import store from './store'
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Provider store={store}>
+    <NavigationContainer>
+      <Drawer />
+      <StatusBar 
+        backgroundColor="black"
+        barStyle= "light-content"
+      />
+    </NavigationContainer>
+    </Provider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
