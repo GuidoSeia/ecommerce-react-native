@@ -1,13 +1,12 @@
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { useGetItisMutation } from '../features/itineraryAPI' 
 import { useNavigation } from '@react-navigation/native';
 
 export default function Itineraries({id}) {
 
     const navigation = useNavigation();
 
-    const [getCity] = useGetItisMutation();
+    /* const [getCity] = useGetItisMutation();
     const [itineraries, setItineraries] = useState()
 
     async function getEvent() {
@@ -23,7 +22,7 @@ export default function Itineraries({id}) {
 
     useEffect(()=>{
         getEvent()
-    },[id])
+    },[id]) */
 
 return (
     <View style={styles.container}>

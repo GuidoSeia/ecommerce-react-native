@@ -2,7 +2,6 @@ import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import { StyleSheet, TouchableOpacity, Image, TextInput, Dimensions, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import { loggedTrue } from '../src/features/loggedSlice'
-import travelers from '../assets/travelers.png'
 import { useGetLoginMutation } from '../src/features/usersAPI'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch } from 'react-redux';
@@ -98,12 +97,7 @@ return (
                 <TouchableOpacity onPress={() => navigation.navigate('Sign Up')}
                         style={SignInstyles.button}>
                         <Text style={{ fontSize: 17, color: 'white', textAlign:'center' }}>Sign Up</Text>
-                </TouchableOpacity>
-
-                <Image
-                        source={travelers}
-                        style={SignInstyles.image}
-                />               
+                </TouchableOpacity>            
 
             </View>
     </View>

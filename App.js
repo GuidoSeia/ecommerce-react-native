@@ -3,7 +3,7 @@ import { StatusBar } from  'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import Drawer from './src/navigation/Drawer' 
 import {Provider} from 'react-redux'
-import store from './store'
+import store from './src/features/store.js'
 
 export default function App() {
   

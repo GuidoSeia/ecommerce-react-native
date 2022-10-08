@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, BackHandler, Image, ScrollView, Button, Alert} from 'react-native';
 import React from 'react'
-import { useGetCityIdQuery } from '../src/features/citiesApi' 
 import { useNavigation } from '@react-navigation/native';
 import Itineraries from '../src/components/Itineraries';
 
@@ -8,15 +7,15 @@ export default function Detail({route}) {
 
     const navigation = useNavigation(); 
     
-    const {data: cities} = useGetCityIdQuery(route.params)
-    const citiesResponse = cities?.response
+    /* const {data: cities} = useGetCityIdQuery(route.params) */
+    /* const citiesResponse = cities?.response
     
-    if(!citiesResponse?.foundation) return null
+    if(!citiesResponse?.foundation) return null */
 
   return (
     <ScrollView>
       <View style={styles.containerGeneral}>
-        <View style={styles.cardDetail}>
+        {/* <View style={styles.cardDetail}>
           <View style={styles.card}>
               <Image 
                   source={{uri:citiesResponse?.photo}}
@@ -33,8 +32,8 @@ export default function Detail({route}) {
           </View>
           <Button onPress={() => navigation.navigate('Cities')}  color={"black"} title={'Go back to cities'} />
         </View>
+      <Itineraries id={route.params} keyExtractor={item => item?._id} />   */}
       </View>
-      <Itineraries id={route.params} keyExtractor={item => item?._id} />  
     </ScrollView>
 
   )

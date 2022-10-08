@@ -18,7 +18,7 @@ export default function Welcome({title}) {
           {title}
         </Text>
         <View style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems:'center'}}>
-        <TouchableOpacity onPress={() => navigation.navigate('Cities')}
+        <TouchableOpacity onPress={() => navigation.navigate('Products')}
           style={styles.button}>
           <Text style={{ fontSize: 20, color: 'white' }}>Start trip!</Text>
         </TouchableOpacity>
