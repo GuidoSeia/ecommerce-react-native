@@ -32,7 +32,7 @@ export default function SignIn() {
                 setEmail('')
                 setPassword('')
                 dispatch(loggedTrue())
-                navigation.navigate('Cities')
+                navigation.navigate('Products')
                 alert('Signed in!')
         } else {
                 alert('You wont pass!')
@@ -88,13 +88,13 @@ return (
 
             <View style={SignInstyles.containerIntro}>
 
-                <Text style={SignInstyles.titleIntro}>Do you Belong ?
+                <Text style={SignInstyles.titleIntro}>Do have an account? 
                 </Text>
 
-                <Text style={SignInstyles.titleInfo}>If you don't have an account, sign up here!
+                <Text style={SignInstyles.titleInfo}>If you don't, sign up here!
                 </Text>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Sign Up')}
+                <TouchableOpacity onPress={() => navigation.navigate('SignUp')}
                         style={SignInstyles.button}>
                         <Text style={{ fontSize: 17, color: 'white', textAlign:'center' }}>Sign Up</Text>
                 </TouchableOpacity>            
@@ -120,7 +120,7 @@ const SignInstyles = StyleSheet.create({
     containerForm : {
         width:"90%",
         height:"40%",
-        backgroundColor: '#3f0303',
+        backgroundColor: '#a9a9a9',
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
         display: 'flex',
