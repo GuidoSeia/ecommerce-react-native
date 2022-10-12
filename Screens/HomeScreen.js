@@ -42,10 +42,10 @@ export default function HomeScreen() {
       />
       <View style={HomeStyles.containerlogo}>
             <Image source={logo} resizeMode={'cover'} style={HomeStyles.logo} />
-            <Button
+             <Button
              title={"See more"}
    onPress={() => navigation.navigate("Welcome")}
-            />
+            /> 
       </View>     
     </View>
   );
