@@ -149,8 +149,8 @@ const SignInstyles = StyleSheet.create({
         borderRadius:20,
         borderColor:"white",
         borderWidth:2,
-        padding:3,
-        width: "30%",
+      justifyContent:"center",
+        width: "100%",
     },
 
     image: {
