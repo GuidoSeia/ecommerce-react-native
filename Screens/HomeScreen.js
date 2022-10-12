@@ -6,10 +6,14 @@ import logo from '../assets/logo-white.png';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Video } from 'expo-av';
 import videobg from '../assets/videobg.mp4'
+import { Button } from 'react-native-web';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function HomeScreen() {
 
   const {width: screenWidth, height: screenHeigth} = Dimensions.get('window');
+  const navigation = useNavigation();
 
   const video = useRef(null);
   const [status, setStatus] = useState({});
@@ -38,6 +42,10 @@ export default function HomeScreen() {
       />
       <View style={HomeStyles.containerlogo}>
             <Image source={logo} resizeMode={'cover'} style={HomeStyles.logo} />
+             <Button
+             title={"See more"}
+   onPress={() => navigation.navigate("Welcome")}
+            /> 
       </View>     
     </View>
   );

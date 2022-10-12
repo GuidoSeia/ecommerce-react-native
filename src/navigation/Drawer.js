@@ -9,6 +9,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loggedTrue } from '../features/loggedSlice'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SignOut from '../../Screens/SignOut';
+import Welcome from '../../Screens/Welcome'
+import AboutUs from '../../Screens/AboutUs'
+import ProductsDetails from '../../Screens/ProductsDetails'
+
 
 const DrawerNavigation = createDrawerNavigator();
 
@@ -29,9 +33,15 @@ return (
   drawerStyle: {
   backgroundColor: 'white',
   width: 250,},}}>
-
+    
   <DrawerNavigation.Screen name="Home" component={HomeScreen} />
+  <DrawerNavigation.Screen name="Welcome" component={Welcome} />
+  <DrawerNavigation.Screen name="SignIn" component={SignIn} />
+  <DrawerNavigation.Screen name="SignUp" component={SignUp} />
   <DrawerNavigation.Screen name="Products" component={Products} />
+  <DrawerNavigation.Screen name="Products Details" component={ProductsDetails} />
+  <DrawerNavigation.Screen name="AboutUs" component={AboutUs} />
+
     
   </DrawerNavigation.Navigator>
 )
