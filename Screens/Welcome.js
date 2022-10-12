@@ -69,13 +69,13 @@ console.log(dataAllProducts)
 
   
   return (
-<View>
+<View style={styles.container}>
 <FlatList
 data={data}
 snapToInterval={300}
-horizontal={true}
-showsHorizontalScrollIndicator={false}
-contentContainerStyle={{ paddingTop: 100, paddingHorizontal: 50 }}
+/* horizontal={true}
+showsHorizontalScrollIndicator={false}*/
+contentContainerStyle={{ paddingTop: 100, paddingHorizontal: 50 }} 
 keyExtractor={(item) => item._id}
 renderItem={({ item }) => {
   return (
@@ -102,8 +102,12 @@ renderItem={({ item }) => {
 }
 
 const styles = StyleSheet.create({
+container : {
+  minHeight: 220
+},
+
   image: {
-    height: 220,
+    minHeight: 220,
     width: 200,
     resizeMode: 'cover',
     alignSelf: 'center',
