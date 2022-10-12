@@ -15,6 +15,7 @@ export default function Welcome() {
     types.push(item?.type)
   }
 }) 
+
 console.log(types)
 
 console.log(dataAllProducts)
@@ -43,21 +44,21 @@ console.log(dataAllProducts)
 
   const data = [
     {
-        id: 1,
-        title: "Watches",
+        _id: 1,
+        _title: "Watches",
         description: "descripcion producto",
         image: "https://www.woodenson.cl/wp-content/uploads/sites/2/2021/10/DSC_0127-600x600.jpg",
         type: "Offer"
     },
     {
-        id: 1,
+        _id: 1,
         title: "Sunglasses",
         description: "descripcion producto",
         image: "https://cdn.shopify.com/s/files/1/0270/6663/0217/products/711426.jpg?v=1634050720",
         type: "New"
     },
     {
-        id: 1,
+        _id: 3,
         title: "Backpacks",
         description: "descripcion producto",
         image: "https://i0.wp.com/chevyproductos.cl/wp-content/uploads/mochila-rolltop-40-lt-negra.jpg?resize=400%2C400&ssl=1",
@@ -65,9 +66,6 @@ console.log(dataAllProducts)
     },
 ]
 
-
-
-  
   return (
 <View style={styles.container}>
 <FlatList
@@ -76,7 +74,7 @@ snapToInterval={300}
 /* horizontal={true}
 showsHorizontalScrollIndicator={false}*/
 contentContainerStyle={{ paddingTop: 100, paddingHorizontal: 50 }} 
-keyExtractor={(item) => item._id}
+//keyExtractor={(item) => item._id}
 renderItem={({ item }) => {
   return (
     <View>
@@ -103,7 +101,9 @@ renderItem={({ item }) => {
 
 const styles = StyleSheet.create({
 container : {
-  minHeight: 220
+  minHeight: 220,
+  backgroundColor: "grey"
+
 },
 
   image: {
