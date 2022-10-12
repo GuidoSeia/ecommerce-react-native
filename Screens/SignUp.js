@@ -10,12 +10,10 @@ export default function SignUp() {
       const navigation = useNavigation(); 
 
       const [newUser] = useGetNewUserMutation()
-
       const [nameRef, setName] = useState()
       const [emailRef, setEmail] = useState()
       const [passwordRef, setPassword] = useState()
       const [imageRef, setImage] = useState()
-      const [countryRef, setCountry] = useState()
 
     const signUp = async(data) => {
         await newUser(data)
@@ -24,7 +22,7 @@ export default function SignUp() {
                 alert('Error trying register')
             } else {
                 alert("Sign up successfully. Please check your email to verify account")
-                navigation.navigate('Sign In')
+                navigation.navigate('SignIn')
             }
         }) 
         .catch(error => alert(error))
@@ -35,19 +33,19 @@ export default function SignUp() {
             e.preventDefault();
     
             let data = {
-            country: countryRef,
             photo: imageRef,
             name: nameRef,
-            pass: passwordRef,
+            password: passwordRef,
             email: emailRef,
             from: 'form',
             role: 'user',
             }
     
-            if(emailRef == "" || passwordRef == "" || nameRef == "" || countryRef == "" || imageRef == ""){
+            if(emailRef == "" || passwordRef == "" || nameRef == "" || imageRef == ""){
                 alert('Please fill all credentials')
             } else {
                 signUp(data)
+
             }
     }
     
@@ -78,9 +76,7 @@ return (
                 <View style={SignUpstyles.inputContainer}>
                 <TextInput placeholder={' Image'} style={SignUpstyles.input} onChangeText={(value)=> setImage(value)} /> 
                 </View>
-                <View style={SignUpstyles.inputContainer}>
-                <TextInput placeholder={' Country'} style={SignUpstyles.input} onChangeText={(value)=> setCountry(value)} /> 
-                </View>
+             
                 
                 <TouchableOpacity onPress={handleForm}
                         style={SignUpstyles.button}>
@@ -90,7 +86,7 @@ return (
 
             <View style={SignUpstyles.containerIntro}>
 
-                <Text style={SignUpstyles.titleIntro}>Do you Belong ?
+                <Text style={SignUpstyles.titleIntro}>Do you have an account? 
                 </Text>
 
                 <Text style={SignUpstyles.titleInfo}>If you already have an account sign in here!
@@ -123,7 +119,7 @@ const SignUpstyles = StyleSheet.create({
     containerForm : {
         width:"90%",
         height:"53%",
-        backgroundColor: '#3f0303',
+        backgroundColor: '#a9a9a9',
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
         display: 'flex',
@@ -153,7 +149,7 @@ const SignUpstyles = StyleSheet.create({
         borderColor:"white",
         borderWidth:2,
         padding:3,
-        width: "30%",
+     width: "100%",
     },
 
     image: {
