@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { setUser } from "../src/features/loggedSlice";
 import { Video } from 'expo-av';
-
+import videobg2 from '../assets/video3.mp4'
 export default function SignIn() {
     const navigation = useNavigation();
     const video = React.useRef(null);
@@ -59,9 +59,7 @@ export default function SignIn() {
             <Video
                 ref={video}
                 style={SignInstyles.video}
-                source={{
-                    uri: 'https://player.vimeo.com/external/570600111.sd.mp4?s=de62b35ce18bcef2c41d5a1cab4f84125a6d79b7&profile_id=165&oauth2_token_id=57447761',
-                }}
+                source={videobg2}
                 rate={.7}
                 shouldPlay={true}
                 isLooping={true}
@@ -111,7 +109,7 @@ const SignInstyles = StyleSheet.create({
     containerIntro: {
         width: "90%",
         height: "35%",
-        backgroundColor: "#000000b6",
+        backgroundColor: "#858585a8",
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
         display: 'flex',
@@ -123,7 +121,7 @@ const SignInstyles = StyleSheet.create({
     containerForm: {
         width: "90%",
         height: "50%",
-        backgroundColor: '#a9a9a994',
+        backgroundColor: '#3a3a3aa8',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         display: 'flex',
@@ -135,8 +133,7 @@ const SignInstyles = StyleSheet.create({
     titleIntro: {
         color: 'white',
         fontSize: 25,
-        marginTop: 10
-
+        marginTop: 10, 
     },
 
     titleInfo: {

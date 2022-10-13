@@ -49,6 +49,7 @@ const scrollX = useRef(new Animated.Value(0)).current;
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            marginBottom: 20,
             }}>
             <Image 
                 source={{uri:item}}
@@ -63,20 +64,21 @@ const scrollX = useRef(new Animated.Value(0)).current;
       <Text style={styles.textDescription}>{dataProduct?.description}</Text>
     <View style={{display: 'flex', justifyContent:'center',alignItems:'center', gap: 10}}>
       <Text style={styles.textPrice}>Price: ${dataProduct?.price}</Text>
-      <Text style={styles.textPrice}>Stock: ${dataProduct?.stock}</Text>
     </View>
 
     <View style={styles.buttons}>
-      <Button style={styles.butt}
+      { logged ? <Button style={styles.butt}
             title={"Add to Cart"}
+            color="#3f0303"
             onPress={() => {
               dispatch(addToCart(dataProduct))
               console.log(cart);
             }}
-            />
+            /> : null }
 
             <Button style={styles.butt}
             title={"Go back to All Products"}
+            color="#3f0303"
             onPress={() => navigation.navigate("Products")}
             /> 
 
@@ -96,20 +98,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: "center",
     color: 'white',
-    marginBottom: 20
+    marginBottom: 20,
   },
   image: {
     width: 300,
     height: 250,
     resizeMode: "cover",
-    borderRadius: 20
+    borderRadius: 20,
   }, 
   text: {
     width:"80%",
     textAlign: "center",
     opacity:.9,
     fontSize: 30,
-    marginTop: 25
+    marginTop: 25,
+    fontWeight: "bold"
   },
   buttons: {
     display: 'flex',
@@ -140,8 +143,7 @@ const styles = StyleSheet.create({
     fontFamily: 'bold'
   },
   container: {
-    flex: 1,
-    backgroundColor: 'rgb(180, 180, 180)'
+    backgroundColor: '#f3f2f3',
   },
   textDescription: {
     marginBottom:30,

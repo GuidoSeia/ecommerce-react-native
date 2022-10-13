@@ -47,7 +47,7 @@ export default function SignOut() {
 
         <Text style={SignOutStyles.titleIntro}>Are you leaving? </Text>
 
-        <Image style={SignOutStyles.image} resizeMode="cover" source={logo}></Image>
+        <Image style={SignOutStyles.image} resizeMode={'contain'} source={logo}></Image>
 
         <Text style={SignOutStyles.titleInfo}>We'll see you next time!</Text>
 
@@ -105,7 +105,9 @@ const SignOutStyles = StyleSheet.create({
     width: "40%",
   },
   image: {
-    width: "80%",
-    height: 140,
+    width: 300,
+    height: 100,
+    resizeMode: "contain",
+    marginBottom: 30
   },
 })

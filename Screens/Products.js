@@ -36,8 +36,8 @@ export default function Products() {
                 style={styles.image}
             />
             <View style={{display: 'flex', justifyContent:'center',alignItems:'center', gap: 10, width:'100%'}}>
-              <Text style={styles.textPrice}>Price: ${item?.price}</Text>
-              <Text style={styles.textPrice}>Stock: {item?.stock}</Text>
+              <Text style={styles.textPrice}>${item?.price}</Text>
+              <Text style={styles.textDetail}>Click to see details!</Text>
             </View>                                       
           </Card>
         </TouchableOpacity>
@@ -97,13 +97,23 @@ const styles = StyleSheet.create({
     marginTop:10
   },
   textPrice: {
-    fontSize: 25,
+    fontSize: 30,
     color: "black",
     width:"100%",
     textAlign: "center",
     opacity:.9,
     padding: 5,
-    borderRadius: 10
-  }
+    borderRadius: 10,
+    fontWeight: "bold"
+  },
+  textDetail:{
+    fontSize: 15,
+    color: "black",
+    width:"100%",
+    textAlign: "center",
+    opacity:.9,
+    padding: 5,
+    borderRadius: 10,
+  },
   
 })
