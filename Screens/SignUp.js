@@ -86,13 +86,11 @@ return (
 
             <View style={SignUpstyles.containerIntro}>
 
-                <Text style={SignUpstyles.titleIntro}>Do you have an account? 
-                </Text>
+                <Text style={SignUpstyles.titleIntro}>Do you have an account? </Text>
 
-                <Text style={SignUpstyles.titleInfo}>If you already have an account sign in here!
-                </Text>
+                <Text style={SignUpstyles.titleInfo}>If you already have an account sign in here!</Text>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Sign In')}
+                <TouchableOpacity onPress={() => navigation.navigate('Sign in')}
                         style={SignUpstyles.button}>
                         <Text style={{ fontSize: 17, color: 'white', textAlign:'center' }}>Sign In</Text>
                 </TouchableOpacity>            
@@ -118,7 +116,6 @@ const SignUpstyles = StyleSheet.create({
 
     containerForm : {
         width:"90%",
-        height:"53%",
         backgroundColor: '#a9a9a9',
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
@@ -148,8 +145,8 @@ const SignUpstyles = StyleSheet.create({
         borderRadius:20,
         borderColor:"white",
         borderWidth:2,
-        padding:3,
-     width: "100%",
+        padding:10,
+        width: "100%",
     },
 
     image: {
@@ -164,7 +161,7 @@ const SignUpstyles = StyleSheet.create({
         borderRadius:20,
         borderColor:"white",
         borderWidth:2,
-        padding:3,
+        padding:10,
         width: "30%",
         marginBottom: 20,
         marginTop: 10
@@ -184,7 +181,7 @@ const SignUpstyles = StyleSheet.create({
         backgroundColor: "white",
         width: "100%",
         borderRadius: 40,
-        padding: 5
+        padding: 15
     },
 
     inputContainer: {

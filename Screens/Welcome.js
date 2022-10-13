@@ -8,23 +8,20 @@ import { useNavigation } from '@react-navigation/native';
 export default function Welcome() {
   const navigation = useNavigation();
   let {data: allproducts} = useGetAllProductsQuery()
- let dataAllProducts= allproducts?.response
- let types=[]
- dataAllProducts?.map((item)=>{
+  let dataAllProducts= allproducts?.response
+  let types=[]
+  dataAllProducts?.map((item)=>{
   if (!types?.includes(item?.type)) {
     types.push(item?.type)
   }
-}) 
+  }) 
 
-console.log(types)
-
-console.log(dataAllProducts)
 
   let { data: watches } = useGetFilteredProductsQuery("reloj")
-  const dataWatches =watches
+  const dataWatches = watches
 
   let { data: sunglasses } = useGetFilteredProductsQuery("anteojos")
-  const dataSunglasses =sunglasses?.response.map(item=>([item?._id, item.type, item.image]))
+  const dataSunglasses = sunglasses?.response.map(item=>([item?._id, item.type, item.image]))
 
   let { data: backpack } = useGetFilteredProductsQuery("mochilas")
   let dataBackpack = backpack?.response.map(item=>([item?._id, item.type, item.image]))
@@ -39,7 +36,6 @@ console.log(dataAllProducts)
 
   let { data: fragrance } = useGetFilteredProductsQuery("perfume") 
   let datafragrance = fragrance?.response.map(item=>([item?._id, item.type, item.image]))
-
 
 
   const data = [
@@ -77,15 +73,15 @@ contentContainerStyle={{ paddingTop: 100, paddingHorizontal: 50 }}
 //keyExtractor={(item) => item._id}
 renderItem={({ item }) => {
   return (
-    <View>
-    <Text  style={styles.h2}> {item.title} </Text>
+    <View style={styles.container}>
+    <Text style={styles.h2}> {item.title} </Text>
     <Image
     style={styles.image}
     source={{ uri: item[3] }}
     />
     <Button
-     onPress={() => navigation.navigate("Products" )}
-     title={"See more"}
+    onPress={() => navigation.navigate("Products" )}
+    title={"See more"}
     />
     </View>
     )
@@ -107,8 +103,8 @@ container : {
 },
 
   image: {
-    minHeight: 220,
-    width: 200,
+    height: 400,
+    width: 400,
     resizeMode: 'cover',
     alignSelf: 'center',
     borderRadius: 30,

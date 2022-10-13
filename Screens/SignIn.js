@@ -1,11 +1,10 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import { StyleSheet, TouchableOpacity, Image, TextInput, Dimensions, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
-import { loggedTrue } from '../src/features/loggedSlice'
 import { useGetLoginMutation } from '../src/features/usersAPI'
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
+import { setUser } from "../src/features/loggedSlice";
 
 export default function SignIn() {
 
@@ -22,16 +21,10 @@ export default function SignIn() {
 
     const signIn = async(data) => {
         await newLogin(data)
-        .then((success) => {
-            console.log(success);
-        let user = success?.data?.response?.user
-        let token = success?.data?.response?.token
+            .then((success) => {
+            let user = success?.data?.response?.user
         if(user != undefined){
-                AsyncStorage.setItem('user', JSON.stringify(user))
-                AsyncStorage.setItem('token', JSON.stringify(token))
-                setEmail('')
-                setPassword('')
-                dispatch(loggedTrue())
+                dispatch(setUser(user))
                 navigation.navigate('Products')
                 alert('Signed in!')
         } else {
@@ -49,11 +42,9 @@ export default function SignIn() {
 
         let data = {
         email: emailRef,
-        pass: passwordRef,
+        password: passwordRef,
         from: 'form'
         }
-
-        console.log(data);
         signIn(data)
     }
     
@@ -94,7 +85,7 @@ return (
                 <Text style={SignInstyles.titleInfo}>If you don't, sign up here!
                 </Text>
 
-                <TouchableOpacity onPress={() => navigation.navigate('SignUp')}
+                <TouchableOpacity onPress={() => navigation.navigate('Sign up')}
                         style={SignInstyles.button}>
                         <Text style={{ fontSize: 17, color: 'white', textAlign:'center' }}>Sign Up</Text>
                 </TouchableOpacity>            
@@ -114,6 +105,7 @@ const SignInstyles = StyleSheet.create({
         borderBottomRightRadius:20,
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         marginBottom: 50
     } ,
 
@@ -145,11 +137,11 @@ const SignInstyles = StyleSheet.create({
     buttonLogin: {
         backgroundColor: '#3f0303',
         color:"white",
-        marginHorizontal: 30,
+        padding: 10,
         borderRadius:20,
         borderColor:"white",
         borderWidth:2,
-      justifyContent:"center",
+        justifyContent:"center",
         width: "100%",
     },
 
@@ -162,11 +154,12 @@ const SignInstyles = StyleSheet.create({
     button: {
         backgroundColor: '#3f0303',
         color:"white",
+        marginTop: 10,
         marginBottom:20,
         borderRadius:20,
         borderColor:"white",
         borderWidth:2,
-        padding:3,
+        padding:10,
         width: "30%",
     },
 
