@@ -4,7 +4,7 @@ import url from "../../api";
 export const usersAPI = createApi({
     reducerPath: "usersAPI",
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://192.168.0.16:4000',
+        baseUrl: 'http://localhost:4000',
     }),
     endpoints: (builder) =>({
       
