@@ -1,16 +1,19 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
-import { StyleSheet, TouchableOpacity, Image, TextInput, Dimensions, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import { StyleSheet, TouchableOpacity, Image, TextInput, Dimensions, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ImageBackground} from 'react-native';
 import { useGetLoginMutation } from '../src/features/usersAPI'
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { setUser } from "../src/features/loggedSlice";
+import { Video } from 'expo-av';
 
 export default function SignIn() {
 
     const {width: screenWidth, height: screenHeigth} = Dimensions.get('window');
 
     const navigation = useNavigation(); 
+    const video = React.useRef(null);
+
 
     const [emailRef, setEmail] = useState()
     const [passwordRef, setPassword] = useState()
@@ -57,7 +60,19 @@ return (
     justifyContent: 'center',
     alignItems: 'center',
     }}>
-            
+        <Video
+        ref={video}
+        style={SignInstyles.video}
+        source={{
+          uri: 'https://player.vimeo.com/external/570600111.sd.mp4?s=de62b35ce18bcef2c41d5a1cab4f84125a6d79b7&profile_id=165&oauth2_token_id=57447761',
+        }}
+        rate={.7}
+        shouldPlay={true}
+        isLooping={true}
+        isMuted={true}
+        resizeMode="cover"
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
             
             <View style={SignInstyles.containerForm}>
                 <Text style={SignInstyles.h1}>
@@ -91,6 +106,7 @@ return (
                 </TouchableOpacity>            
 
             </View>
+            
     </View>
 )
 }
@@ -99,7 +115,7 @@ const SignInstyles = StyleSheet.create({
     
     containerIntro: {
         width:"90%",
-        height:"40%",
+        height:"35%",
         backgroundColor: "black",
         borderBottomLeftRadius:20,
         borderBottomRightRadius:20,
@@ -111,7 +127,7 @@ const SignInstyles = StyleSheet.create({
 
     containerForm : {
         width:"90%",
-        height:"40%",
+        height:"50%",
         backgroundColor: '#a9a9a9',
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
@@ -193,6 +209,15 @@ const SignInstyles = StyleSheet.create({
         background: "red",
         width: "10%",
         
-    }
+    },
+
+    video: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 0,
+        opacity: 1,
+      }
 
 })
