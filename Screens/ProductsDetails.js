@@ -2,6 +2,7 @@ import { StyleSheet, View, Text, Button, TextInput, Image, Animated } from 'reac
 import React from 'react'
 import {useGetProductQuery} from "../src/features/productsApi"
 import { useNavigation } from '@react-navigation/native';
+import { addToCart, removeCart, decrementQuantity, newOrder } from '../src/features/cartSlice'
 import {useState, useRef} from "react"
 import { useSelector, useDispatch } from "react-redux";
 
@@ -10,14 +11,12 @@ const navigation = useNavigation();
 
 const logged = useSelector((state) => state.logged.loggedState);
 
+const dispatch = useDispatch()
+
 const {data:product} = useGetProductQuery(route.params)
 const dataProduct = product?.response
 
-function upperCaseOne(search) {
-    return search.charAt(0).toUpperCase() + search.slice(1)
-}
-
-console.log(dataProduct?.photo?.[0]);
+const cart = useSelector((state) => state.cart.cart)
 
 const scrollX = useRef(new Animated.Value(0)).current; 
 
@@ -50,7 +49,6 @@ const scrollX = useRef(new Animated.Value(0)).current;
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: 45
             }}>
             <Image 
                 source={{uri:item}}
@@ -63,14 +61,19 @@ const scrollX = useRef(new Animated.Value(0)).current;
 
     <View style={{display: 'flex', justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
       <Text style={styles.textDescription}>{dataProduct?.description}</Text>
-    <View>
-      <Text style={styles.textPrice}>${dataProduct?.price}</Text>
+    <View style={{display: 'flex', justifyContent:'center',alignItems:'center', gap: 10}}>
+      <Text style={styles.textPrice}>Price: ${dataProduct?.price}</Text>
+      <Text style={styles.textPrice}>Stock: ${dataProduct?.stock}</Text>
     </View>
 
     <View style={styles.buttons}>
-      {logged ? <Button style={styles.butt}
+      <Button style={styles.butt}
             title={"Add to Cart"}
-            />  : null }
+            onPress={() => {
+              dispatch(addToCart(dataProduct))
+              console.log(cart);
+            }}
+            />
 
             <Button style={styles.butt}
             title={"Go back to All Products"}
@@ -93,6 +96,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: "center",
     color: 'white',
+    marginBottom: 20
   },
   image: {
     width: 300,
@@ -109,7 +113,9 @@ const styles = StyleSheet.create({
   },
   buttons: {
     display: 'flex',
-    justifyContent:  "space-between",
+    justifyContent:  "center",
+    alignItems: 'center',
+    gap: 10,
     height: 150,
     marginBottom: 10,
     width: '100%',
@@ -130,7 +136,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   textPrice: {
-    fontSize: 20
+    fontSize: 30,
+    fontFamily: 'bold'
   },
   container: {
     flex: 1,

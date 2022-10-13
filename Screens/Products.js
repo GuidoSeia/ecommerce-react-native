@@ -35,9 +35,10 @@ export default function Products() {
                 source={{uri:item?.photo?.[0]}}
                 style={styles.image}
             />
-            {logged ? <View style={styles.buttons}>
-              <Pressable style={styles.butt}  title={'Add to cart'}><Text style={styles.text}>Add to cart</Text></Pressable> 
-            </View> : <Text>Log in to buy!</Text> }                                         
+            <View style={{display: 'flex', justifyContent:'center',alignItems:'center', gap: 10, width:'100%'}}>
+              <Text style={styles.textPrice}>Price: ${item?.price}</Text>
+              <Text style={styles.textPrice}>Stock: {item?.stock}</Text>
+            </View>                                       
           </Card>
         </TouchableOpacity>
       )} />
@@ -94,6 +95,15 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop:10
+  },
+  textPrice: {
+    fontSize: 25,
+    color: "black",
+    width:"100%",
+    textAlign: "center",
+    opacity:.9,
+    padding: 5,
+    borderRadius: 10
   }
   
 })

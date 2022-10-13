@@ -60,7 +60,7 @@ return (
     justifyContent: 'center',
     alignItems: 'center',
     }}>
-        <Video
+        {/* <Video
         ref={video}
         style={SignInstyles.video}
         source={{
@@ -72,7 +72,7 @@ return (
         isMuted={true}
         resizeMode="cover"
         onPlaybackStatusUpdate={status => setStatus(() => status)}
-      />
+      /> */}
             
             <View style={SignInstyles.containerForm}>
                 <Text style={SignInstyles.h1}>
@@ -132,7 +132,8 @@ const SignInstyles = StyleSheet.create({
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
         display: 'flex',
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: 'center'
     
     },
 
