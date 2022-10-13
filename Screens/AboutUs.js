@@ -36,9 +36,6 @@ const contactData = [
   }
 ]
 
-
-console.log(
-  [0].city)
   return (
 
     <ImageBackground source={image}>
@@ -73,21 +70,6 @@ console.log(
                 </View>
                 
         </View>
-
- {/*    <FlatList
-          data={contactData}
-           keyExtractor={(item) => item._id} 
-          renderItem={({item})=> {
-            return(
-            <View  style={styles.cardContent} >
-                    <Text style={styles.title}>{item[0]}</Text>
-                    <Text style={styles.txt}>{item[1]}</Text>
-                    <Text style={styles.txt}>{item[2]}</Text>
-                    <Text style={styles.txt}>{item[3]}</Text>
-                    </View>)}
-          }
-
-        /> */}
 
       <View style={styles.cardContainer} >
 

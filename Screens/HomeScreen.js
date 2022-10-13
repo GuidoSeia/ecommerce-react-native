@@ -18,8 +18,6 @@ export default function HomeScreen() {
   const video = useRef(null);
   const [status, setStatus] = useState({});
 
-  const title = 'No matter where in the world you want to go, we can help get you there.'
-
   return (
     <View style={{
       width: screenWidth,
@@ -41,10 +39,10 @@ export default function HomeScreen() {
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
       <View style={HomeStyles.containerlogo}>
-            <Image source={logo} resizeMode={'cover'} style={HomeStyles.logo} />
-             <Button
-             title={"See more"}
-   onPress={() => navigation.navigate("Welcome")}
+            <Image source={logo} resizeMode={'contain'} style={HomeStyles.logo} />
+            <Button
+            title={"Go home"}
+            onPress={() => navigation.navigate("Products")}
             /> 
       </View>     
     </View>
@@ -58,6 +56,7 @@ const HomeStyles = StyleSheet.create({
     width: 300,
     height: 100,
     resizeMode: "contain",
+    marginBottom: 30
   },
   containerlogo : {
     display: 'flex',

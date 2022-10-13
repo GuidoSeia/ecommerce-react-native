@@ -19,13 +19,8 @@ const DrawerNavigation = createDrawerNavigator();
 export default function Drawer() {
 
   const logged = useSelector((state) => state.logged.loggedState)
-  const dispatch = useDispatch()
 
   const user = AsyncStorage.getItem('user')
-
-  if (user.length > 0) {
-    dispatch(loggedTrue())
-  }
 
 return (
   <DrawerNavigation.Navigator
@@ -33,14 +28,18 @@ return (
   drawerStyle: {
   backgroundColor: 'white',
   width: 250,},}}>
-    
-  <DrawerNavigation.Screen name="Home" component={HomeScreen} />
-  <DrawerNavigation.Screen name="Welcome" component={Welcome} />
-  <DrawerNavigation.Screen name="SignIn" component={SignIn} />
-  <DrawerNavigation.Screen name="SignUp" component={SignUp} />
+
+  <DrawerNavigation.Screen options={{
+                  drawerItemStyle: { display: 'none' }
+  }} name="Welcome" component={HomeScreen} />
+  <DrawerNavigation.Screen name="Home" component={Welcome} />
   <DrawerNavigation.Screen name="Products" component={Products} />
-  <DrawerNavigation.Screen name="Products Details" component={ProductsDetails} />
-  <DrawerNavigation.Screen name="AboutUs" component={AboutUs} />
+  <DrawerNavigation.Screen options={{
+                  drawerItemStyle: { display: 'none' }
+  }} name="Details" component={ProductsDetails} />
+  <DrawerNavigation.Screen name="About us" component={AboutUs} />
+  { logged ? <DrawerNavigation.Screen name="Sign out" component={SignOut} /> : <DrawerNavigation.Screen name="Sign in" component={SignIn} />}
+  { logged ? null : <DrawerNavigation.Screen name="Sign up" component={SignUp} />}
 
     
   </DrawerNavigation.Navigator>

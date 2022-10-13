@@ -15,24 +15,6 @@ export default function Detail({route}) {
   return (
     <ScrollView>
       <View style={styles.containerGeneral}>
-        {/* <View style={styles.cardDetail}>
-          <View style={styles.card}>
-              <Image 
-                  source={{uri:citiesResponse?.photo}}
-                  style={styles.image}
-              />
-          </View>
-          <View style={styles.cardText}>
-              <Text style={styles.textTitle}>{citiesResponse?.city}</Text>              
-              <Text style={styles.text}>{ citiesResponse?.description }</Text>
-          </View>
-          <View style={styles.cardText}>
-              <Text style={styles.text}>Population: { citiesResponse?.population }</Text>
-              <Text style={styles.text}>Foundation year: {(citiesResponse?.foundation).slice(0,4)}</Text>
-          </View>
-          <Button onPress={() => navigation.navigate('Cities')}  color={"black"} title={'Go back to cities'} />
-        </View>
-      <Itineraries id={route.params} keyExtractor={item => item?._id} />   */}
       </View>
     </ScrollView>
 
