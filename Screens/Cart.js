@@ -10,6 +10,13 @@ export default function Cart() {
 
     const dispatch = useDispatch()
 
+    const addition = (acc, currentValue) => {
+      return acc + currentValue.price * currentValue.quantity
+  }
+  let subTotalCart = cart.reduce(addition, 0)
+
+  console.log(subTotalCart)
+
 return (
     <View style={styles.container}>
     <View style={{display: 'flex', justifyContent:'center',alignItems:'center', gap: 10, width:'100%'}}>
@@ -21,6 +28,7 @@ return (
         color= '#3f0303'
         title='Proceed checkout' />
         </View>
+        <Text style={styles.textPrice}>Total: ${subTotalCart}</Text>
     </View>
     <View style={styles.containerFlatlist}>
     <FlatList style={styles.flatlist} keyExtractor={item => item?._id} data={cart} renderItem={({ item }) => (
@@ -149,7 +157,7 @@ return (
     },
     container: {
       flex: 1,
-      backgroundColor: 'rgb(180, 180, 180)'
+      backgroundColor: '#f3f2f3',
     },
     textDescription: {
       marginBottom:30,

@@ -63,7 +63,7 @@ export default function SignUp() {
                 ref={video}
                 style={SignUpstyles.video}
                 source={{
-                    uri: 'https://player.vimeo.com/external/570600111.sd.mp4?s=de62b35ce18bcef2c41d5a1cab4f84125a6d79b7&profile_id=165&oauth2_token_id=57447761',
+                    uri: 'https://player.vimeo.com/external/573966828.hd.mp4?s=86b70c53a63fbf87fe32c138a1f1ac627bca2211&profile_id=174&oauth2_token_id=57447761',
                 }}
                 rate={.7}
                 shouldPlay={true}
@@ -119,7 +119,7 @@ const SignUpstyles = StyleSheet.create({
     containerIntro: {
         width: "90%",
         height: "28%",
-        backgroundColor: "#000000b6",
+        backgroundColor: "#a9a9a994",
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
         display: 'flex',
@@ -129,7 +129,8 @@ const SignUpstyles = StyleSheet.create({
 
     containerForm: {
         width: "90%",
-        backgroundColor: '#a9a9a994',
+        backgroundColor: '#000000b6',
+        
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         display: 'flex',

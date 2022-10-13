@@ -36,7 +36,7 @@ return (
   <DrawerNavigation.Screen name="About us" component={AboutUs} />
   { logged ? <DrawerNavigation.Screen name="Sign out" component={SignOut} /> : <DrawerNavigation.Screen name="Sign in" component={SignIn} />}
   { logged ? null : <DrawerNavigation.Screen name="Sign up" component={SignUp} />}
-  <DrawerNavigation.Screen name="Cart" component={Cart} />
+  { logged ? <DrawerNavigation.Screen name="Cart" component={Cart} /> : null}
 
     
   </DrawerNavigation.Navigator>
